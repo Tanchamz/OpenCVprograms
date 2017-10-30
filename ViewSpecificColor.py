@@ -1,7 +1,9 @@
 import cv2
 import numpy as np
+
 cap=cv2.VideoCapture(0)
-while(1):
+
+while True:
     ret,frame=cap.read()
     hsv=cv2.cvtColor(frame,cv2.COLOR_BGR2HSV)
     lower_red=np.array([R,G,B])        #specify lower and upper values for colours that you want visible in image
@@ -11,7 +13,9 @@ while(1):
     cv2.imshow('frame',frame)
     cv2.imshow('res',res)
     k=cv2.waitKey(5)& 0xFF
+
     if k==27:
         break
+
 cv2.destroyAllWindows()
 cap.release()
